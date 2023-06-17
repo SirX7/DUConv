@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dataconverter"
+authors = [
+  { name="Shall Mcfield", email="xhall.mc@protonmail.com" },
+]
+description = "Convert data to varios types"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Operating System :: OS Independent",
+    "Topic :: Internet",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+
+]
+dependencies = [
+    "cliwiper>=1.1.4",
+]
+
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://github.com/SirX7/dataconverter"
+"Bug Tracker" = "https://github.com/SirX7/dataconverter/issues"
+
+[project.optional-dependencies]
+test = [
+  "pytest >=7.3.2,<8.0.0",
+]
+
+
+[tool.hatch.version]
+path = "dataconverter/__init__.py"
+
+[project.scripts]
+dataconverter = "dataconverter.main:cli"
