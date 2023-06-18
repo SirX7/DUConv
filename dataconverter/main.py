@@ -51,36 +51,38 @@ def cli()-> None:
         print(f"{error}\n{HELPER}")
 
     else:
-
         if len(opts)<1:
             print("no options was given")
             sys.exit(f"{HELPER}\nexit code=1")
 
         for opt, val in opts:
-            # print(f"{opt=}\n{val=}")
-            if opt in ("-b", "--byte"):            
-                print(bytesconvert.bytes_converter(float(val)))
+            try:
+                if opt in ("-b", "--byte"):
+                    print(bytesconvert.bytes_converter(float(val)))
+                
+                elif opt in ("-d", "--data-to-byte"):
+                    print(bytesconvert.data_to_bytes(float(val),args[0]))
+
+                elif opt in ("-k", "--kb"):
+                    print(convert.to_kb(float(val),args[0]))
+
+                elif opt in ("-m", "--mb"):
+                    print(convert.to_mb(float(val),args[0]))
+
+                elif opt in ("-g", "--gb"):
+                    print(convert.to_gb(float(val),args[0]))
+
+                elif opt in ("-t", "--tb"):
+                    print(convert.to_tb(float(val),args[0]))
+
+                elif opt in ("-h", "--help"):
+                    print(help())
+                
+                elif opt in ("-v", "--version"):
+                    print(f"dataconverter version {_v}\n\nCopyright 2023 Shall Mcfield.\nLicense under the MIT License")
             
-            elif opt in ("-d", "--data-to-byte"):
-                print(bytesconvert.data_to_bytes(float(val),args[0]))
-
-            elif opt in ("-k", "--kb"):
-                print(convert.to_kb(float(val),args[0]))
-
-            elif opt in ("-m", "--mb"):
-                print(convert.to_mb(float(val),args[0]))
-
-            elif opt in ("-g", "--gb"):
-                print(convert.to_gb(float(val),args[0]))
-
-            elif opt in ("-t", "--tb"):
-                print(convert.to_tb(float(val),args[0]))
-
-            elif opt in ("-h", "--help"):
-                print(help())
-            
-            elif opt in ("-v", "--version"):
-                print(f"dataconverter version {_v}\n\nCopyright 2023 Shall Mcfield.\nLicense under the MIT License")
+            except (ValueError, Exception) as e:
+                sys.exit(f"{HELPER}\nnumeric value required (exit code=1)")
 
 
 if __name__ == "__main__":
