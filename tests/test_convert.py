@@ -17,6 +17,10 @@ def test_to_kb():# Add self if using unittest module.
     kb= convert.to_kb(5,"t")
     assert kb == "5,000,000,000.00 KB", "1 TB = 1,000,000,000 KB(1000^3) - resoult should be 5,000,000,000.00 KB (5*(1,000^3)=5,000,000,000.00)"
 
+    # Invalid unit name check
+    kb = convert.to_kb(5,"k")
+    assert kb == 0, "Return value is 0 when unit name is invalid - Unit name for to_kb fn must be one of M,G,T"
+
 
 def test_to_mb():# Add self if using unittest module.
     # From KB to MB
@@ -30,6 +34,10 @@ def test_to_mb():# Add self if using unittest module.
     # From TB to MB
     mb= convert.to_mb(1.92,"t")
     assert mb == "1,920,000.00 MB", "1 TB = 1,000,000 MB (1,000^2) - resoult should be 1,920,000.00 MB (1.92*(1,000^2)=1,920,000.00)"
+
+    # Invalid unit name check
+    mb = convert.to_mb(5,"M")
+    assert mb == 0, "Return value is 0 when unit name is invalid - Unit name for to_mb fn must be one of K,G,T"
 
 
 def test_to_gb():# Add self if using unittest module.
@@ -45,6 +53,10 @@ def test_to_gb():# Add self if using unittest module.
     gb= convert.to_gb(0.23,"t")
     assert gb == "230.00 GB", "1 TB = 1,000 GB - resoult should be 230.00 GB (0.23*1,000=230)"
 
+    # Invalid unit name check
+    gb = convert.to_gb(5,"g")
+    assert gb == 0, "Return value is 0 when unit name is invalid - Unit name for to_gb fn must be one of K,M,T"
+
 
 def test_to_tb():# Add self if using unittest module.
     # From KB to TB
@@ -58,6 +70,10 @@ def test_to_tb():# Add self if using unittest module.
     # From GB to TB
     tb= convert.to_tb(9_100,"g")
     assert tb == "9.10 TB", "1 TB =  1,000 GB - resoult should be 9.10 TB (9,100/1,000=9.10)"
+
+    # Invalid unit name check
+    tb = convert.to_tb(5,"T")
+    assert tb == 0, "Return value is 0 when unit name is invalid - Unit name for to_tb fn must be one of K,M,G"
 
 
 

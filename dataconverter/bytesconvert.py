@@ -8,7 +8,7 @@ def bytes_converter(b: int|float) -> float:
 
     for un in unitNames:
         if b < unitSize:
-            return f"{b:.3f} {un}"
+            return f"{b:,.3f} {un}"
         b /= unitSize
         
 def data_to_bytes(d:int|float, un: str)-> float:
@@ -21,18 +21,19 @@ def data_to_bytes(d:int|float, un: str)-> float:
     if unit in unitNames:
         if unit == "K":
             b = d*1_000
-            return f"{b:.3f} bytes"
+            return f"{b:,.3f} bytes"
 
         elif unit == "M":
             b = d*1_000_000
-            return f"{b:.3f} bytes"
+            return f"{b:,.3f} bytes"
 
         elif unit == "G":
             b = d*1_000_000_000
-            return f"{b:.3f} bytes"
+            return f"{b:,.3f} bytes"
 
         elif unit == "T":
             b = d*1_000_000_000_000
-            return f"{b:.3f} bytes"
+            return f"{b:,.3f} bytes"
     else:
         print(f"{un} is not a valid data unit name. Please try again by entering any of {unitNames}")
+        return 0
