@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "dataconverter"
+name = "duconv"
 authors = [
   { name="Shall Mcfield", email="xhall.mc@protonmail.com" },
 ]
@@ -29,8 +29,8 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-"Homepage" = "https://github.com/SirX7/dataconverter"
-"Bug Tracker" = "https://github.com/SirX7/dataconverter/issues"
+"Homepage" = "https://github.com/SirX7/DUConv"
+"Bug Tracker" = "https://github.com/SirX7/DUConv/issues"
 
 [project.optional-dependencies]
 test = [
@@ -39,7 +39,7 @@ test = [
 
 
 [tool.hatch.version]
-path = "dataconverter/__init__.py"
+path = "duconv/__init__.py"
 
 [project.scripts]
-dataconverter = "dataconverter.main:cli"
+duconv = "duconv.main:cli"

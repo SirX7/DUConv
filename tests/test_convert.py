@@ -1,6 +1,6 @@
 import unittest
 import pytest
-from dataconverter import convert
+from duconv import convert
 
 # class Testconverter(unittest.TestCase): # Uncomment for unittest module
 
