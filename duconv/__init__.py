@@ -3,4 +3,4 @@ from duconv.convert import to_kb, to_mb, to_gb, to_tb
 
 # from cliwiper.cliwiper import wiper
 
-__version__ = "1.0.0rc1"
+__version__ = "1.0.2rc1"
